@@ -34,6 +34,39 @@ div.card2 {
     width: 250px;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
+    }
+     form {
+        width: 600px;
+        background: #ccc;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid black;
+    
+      }
+      form img {
+        height: 600px;
+        order: 1;
+      }
+      form p {
+        line-height: 600px;
+        padding-left: 10px;
+      }
+      form label, form button {
+        background-color: #7F9CCB;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px ridge black;
+        font-size: 0.8rem;
+        height: auto;
+      }
+      form label:hover, form button:hover {
+        background-color: #2D5BA3;
+        color: white;
+      }
+      form label:active, form button:active {
+        background-color: #0D3F8F;
+        color: white;
+      }
 </style>
 </head><body>
 
@@ -71,7 +104,7 @@ div.card2 {
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-48 card2"><span class="w3-tag w3-wide w3-cyan w3-text-white">About TheraLeap</span></h5>
-    <p>Theraleap is a program built to make the lives patients undergoing physical therapy have a comfortable recovery. </p>
+    <p>Theraleap is a platform for remote Physical Therapy. Patients recovering from injury or operation of the arms and hands will now have the ablity to perform their routine's in the comfort of their home. </p>
     <img src="https://www.rockpapershotgun.com/images/14/dec/leapmotion.jpg">
 	<p>Programmed in Python, using Leap motion.</p>
     <p><strong>Delevoped by:</strong> Karla Montejo, Andres Rodriguez, Drew Collins, and Christopher Montejo</p>
@@ -84,41 +117,89 @@ div.card2 {
  
     <h5 class="w3-center w3-padding-48 card2"><span class="w3-tag w3-wide w3-cyan w3-text-white">Statistics</span></h5>
 
-	<div class = "w3-center"> <img src = "https://www.mathgoodies.com/sites/all/modules/custom/lessons/images/graphs/line_example1.jpg">
+
 </div>
 
-<div class ="w3-center"><button onclick="myFunction()">Upload Image</button></div>
+<p>Below is a patient's routine data. The leap sensor quantifies the patient's accuracy to the desired poses. </p>
 
-<script>
-var input = document.querySelector('input');
-var preview = document.querySelector('.preview');
-input.addEventListener('change', updateImageDisplay);
-
-input.style.opacity = 0;
-</script>
-
-<form method="post" enctype="multipart/form-data">
-  <div>
-    <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
-    <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
-  </div>
-  <div class="preview">
-    <p>No files currently selected for upload</p>
-  </div>
-  <div>
-    <button>Submit</button>
-  </div>
+<form>
+<div>
+  <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
+  <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
+</div>
+<div class="preview">
+  <p>No files currently selected for upload</p>
+</div>
+<div>
+</div>
 </form>
+     <script>
+        var input = document.querySelector('input');
+        var preview = document.querySelector('.preview');
+        input.style.visibility = 'hidden';
+        input.addEventListener('change', updateImageDisplay);
+        function updateImageDisplay() {
+          while(preview.firstChild) {
+            preview.removeChild(preview.firstChild);
+          }
+          var curFiles = input.files;
+          if(curFiles.length === 0) {
+            var para = document.createElement('p');
+            para.textContent = 'No files currently selected for upload';
+            preview.appendChild(para);
+          } else {
+            var list = document.createElement('ol');
+            preview.appendChild(list);
+            for(var i = 0; i < curFiles.length; i++) {
+              var listItem = document.createElement('li');
+              var para = document.createElement('p');
+              if(validFileType(curFiles[i])) {
+                para.textContent = 'File name ' + curFiles[i].name + ', file size ' + returnFileSize(curFiles[i].size) + '.';
+                var image = document.createElement('img');
+                image.src = window.URL.createObjectURL(curFiles[i]);
+                listItem.appendChild(image);
+                listItem.appendChild(para);
+              } else {
+                para.textContent = 'File name ' + curFiles[i].name + ': Not a valid file type. Update your selection.';
+                listItem.appendChild(para);
+              }
+              list.appendChild(listItem);
+            }
+          }
+        }
+        var fileTypes = [
+          'image/jpeg',
+          'image/pjpeg',
+          'image/png'
+        ]
+        function validFileType(file) {
+          for(var i = 0; i < fileTypes.length; i++) {
+            if(file.type === fileTypes[i]) {
+              return true;
+            }
+          }
+          return false;
+        }
+        function returnFileSize(number) {
+          if(number < 1024) {
+            return number + 'bytes';
+          } else if(number > 1024 && number < 1048576) {
+            return (number/1024).toFixed(1) + 'KB';
+          } else if(number > 1048576) {
+            return (number/1048576).toFixed(1) + 'MB';
+          }
+        }
+     </script>
+
+
 
   </div>
 </div>
-
-
 
 <!-- Contact/Area Container -->
 <div class="w3-container" id="where" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:700px">
-    <a href = "https://www.bankofamerica.com"><h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-cyan w3-text-white">Download</span></h5></a>
+    <a href = "https://drive.google.com/open?id=1pGAJheMu869QkG3dvle0M3A6IdOVZ5_b"><h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-cyan w3-text-white">Download</span></h5></a>
 	
 
 
