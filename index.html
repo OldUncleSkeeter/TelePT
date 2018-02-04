@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Thera Leap</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,43 +13,53 @@ body, html {
 .bgimg {
     background-position: center;
     background-size: cover;
-    background-image: url("/w3images/coffeehouse.jpg");
+    background-image: url("https://s-media-cache-ak0.pinimg.com/736x/6a/75/eb/6a75eb3f8f29939e28b770d89759a39c--arm-muscles-character-reference.jpg");
     min-height: 75%;
 }
 .menu {
     display: none;
 }
+div.card {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+div.card1 {
+    width: 250px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2), 0 6px  0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+div.card2 {
+    width: 250px;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
 </style>
 <body>
 
 <!-- Links (sit on top) -->
 <div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">Home</a>
+    <div class="w3-col s3 card1">
+      <a href="#" class="w3-button w3-block w3-cyan w3-text-white">Home</a>
     </div>
-    <div class="w3-col s3">
-      <a href="#about" class="w3-button w3-block w3-black">About</a>
+    <div class="w3-col s3 card1">
+      <a href="#about" class="w3-button w3-block w3-cyan w3-text-white">About</a>
     </div>
-    <div class="w3-col s3">
-      <a href="#menu" class="w3-button w3-block w3-black">Graphthings?</a>
+    <div class="w3-col s3 card1">
+      <a href="#menu" class="w3-button w3-block w3-cyan w3-text-white">Graphthings?</a>
     </div>
-    <div class="w3-col s3">
-      <a href="#where" class="w3-button w3-block w3-black">Download</a>
+    <div class="w3-col s3 card1">
+      <a href="#where" class="w3-button w3-block w3-cyan w3-text-white">Download</a>
     </div>
   </div>
 </div>
 
 <!-- Header with image -->
-<header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-    <span class="w3-tag">A leap in telemedicine.</span>
+<header class="bgimg w3-display-container" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small card1">
+    <span class="w3-tag w3-cyan w3-text-white">A leap in telemedicine.</span>
   </div>
-  <div class="w3-display-middle w3-center">
-    <span class="w3-text-white" style="font-size:90px">Thera<br>Leap</span>
-  </div>
-  <div class="w3-display-bottomright w3-center w3-padding-large">
-    <span class="w3-text-white">MangoHacks 2018</span>
+  <div class="w3-display-left w3-center card2">
+    <span class="w3-tag w3-cyan w3-text-white" style="font-size:90px">TheraLeap</span>
   </div>
 </header>
 
@@ -59,7 +69,7 @@ body, html {
 <!-- About Container -->
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">About TheraLeap</span></h5>
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide w3-cyan w3-text-white">About TheraLeap</span></h5>
     <p>TheraLeap is lit as fuck.</p>
     <img src="/w3images/coffeeshop.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
     <p><strong>Delevoped by:</strong> Karla Montejo, Andres Rodriguez, Drew Collins, and Christopher Montejo</p>
